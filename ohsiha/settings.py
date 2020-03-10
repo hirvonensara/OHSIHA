@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'djangoapp.apps.DjangoappConfig'
+    'djangoapp.apps.DjangoappConfig',
+    'accounts.apps.AccountsConfig', 
 ]
 
 MIDDLEWARE = [
@@ -120,6 +121,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# Specifying the route where users go once logged in
+# Specifying the route where users go once logged in and out
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
