@@ -1,8 +1,6 @@
-<html>
-    <head>
-        <title>Hello World</title>
-    </head>
-    <body>
-        <p>Moi!</p>
-    </body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>EXAMPLE DATA</h2>
+  <p>Your ip address is <strong>this</strong>, and you are probably in <strong>Finland</strong> right now.</p>
+{% endblock %}

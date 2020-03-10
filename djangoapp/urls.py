@@ -6,4 +6,5 @@ urlpatterns =[
     #path('', views.HomePageView, name="kotisivu")
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
     # path('signup/', views.SignUp.as_view(), name='signup'),
+    path('example/', views.example, name='example')
 ]
