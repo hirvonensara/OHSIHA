@@ -2,5 +2,11 @@
 
 {% block content %}
   <h2>EXAMPLE DATA</h2>
-  <p>Your ip address is <strong>this</strong>, and you are probably in <strong>Finland</strong> right now.</p>
+  <p>There are {{ count_pirkanmaa }} confirmed coronavirus 
+    infected patients in <strong>Pirkanmaa</strong> 
+    and  {{ count_hus }}  patients in <strong>HUS</strong>.</p>
+  <p>In the rest of the Finland, there are {{ count_other }} confirmed coronavirus 
+    infected patients.</p> 
+  <p> All together, there are {{ all }} patients in Finland. </p>
+
 {% endblock %}
