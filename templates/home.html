@@ -1,10 +1,14 @@
 ﻿<!-- templates/home.html -->
+{% load static%}
+
 <!DOCTYPE html>
+
 <html>
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
 
   <title>{% block title %}Home{% endblock %}</title>
 </head>
@@ -14,6 +18,8 @@
 
 {% block content %}
 {% if user.is_authenticated %}
+
+  <h1> Tämä on otsikko</h1>
 
   Hi {{ user.username }}!
 
