@@ -3,6 +3,10 @@ import requests
 
 # Create your views here.
 
+def home(request):
+
+    return render(request, 'home.html' )
+
 def example(request):
     count_in_pirkanmaa = 0
     count_in_hus = 0
