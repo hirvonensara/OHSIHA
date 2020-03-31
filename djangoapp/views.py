@@ -34,10 +34,18 @@ def home(request):
     for number in confirmed_cases:
         all_cases += number
 
+    confirmed_dct = {}
+
+    for i in range(0, 22):
+        districts = list(healthcaredistricts.keys())
+        district = districts[i]
+        confirmed = confirmed_cases[i]
+        confirmed_dct[district] = confirmed
+
     return render(request, 'home.html',
     {
-        'districts' : healthcaredistricts,
-        'confirmed' : confirmed_cases
+        'confirmed' : confirmed_dct,
+        'all_confirmed' : all_cases
     } )
 
 def example(request):

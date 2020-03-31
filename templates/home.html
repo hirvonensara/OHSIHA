@@ -33,20 +33,21 @@
       <th>Confirmed</th>
     </tr>
     
-    {% for d in districts %}
-
-      {% for c in confirmed%}
+    {% for d, c in confirmed.items %}
     <tr>
     <td>{{d}}  </td>
     <td> {{ c }}</td>
     </tr>
-      
-      {% endfor %}
+
     {% endfor %}
-
+    <tr>
+      <td> All together</td>
+      <td> {{ all_confirmed }}</td>
+    </tr>
+      
+     
     
-    
-
+ 
   </table>
 
 
