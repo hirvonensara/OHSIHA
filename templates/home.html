@@ -6,9 +6,10 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+  <link rel="stylesheet" href="{% static 'static/css/home.css' %}">
 
   <title>{% block title %}Home{% endblock %}</title>
 </head>
@@ -24,6 +25,31 @@
   Hi {{ user.username }}!
 
   <p> jos näät tämän olet hyvin viisas</p>
+
+
+  <table>
+    <tr>
+      <th> District</th>
+      <th>Confirmed</th>
+    </tr>
+    
+    {% for d in districts %}
+
+      {% for c in confirmed%}
+    <tr>
+    <td>{{d}}  </td>
+    <td> {{ c }}</td>
+    </tr>
+      
+      {% endfor %}
+    {% endfor %}
+
+    
+    
+
+  </table>
+
+
   <!--<p><strong>Title: </strong> {{ title }}</p>
   # <p><strong>Description: </strong> {{ description }}</p> -->
   <p><a href="{% url 'logout' %}">logout</a></p>
@@ -35,3 +61,4 @@
 {% endif %}
 {% endblock %}
 </body>
+</html>
