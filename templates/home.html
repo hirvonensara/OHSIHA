@@ -20,9 +20,9 @@
 {% block content %}
 {% if user.is_authenticated %}
 
-  <h1> Tämä on otsikko</h1>
+  <h1> Corona virus status in Finland</h1>
 
-  Hi {{ user.username }}!
+  Welcome {{ user.username }}!
 
   <p> jos näät tämän olet hyvin viisas</p>
 
@@ -31,18 +31,26 @@
     <tr>
       <th> District</th>
       <th>Confirmed</th>
+      <th>Deaths</th>
+      <th>Recovered</th>
     </tr>
     
-    {% for d, c in confirmed.items %}
+    {% for district, list in coronadata.items %}
     <tr>
-    <td>{{d}}  </td>
-    <td> {{ c }}</td>
+    <td>{{district}}  </td>
+
+    {% for l in list %}
+
+    <td> {{ l }}</td>
+    {% endfor %}
     </tr>
 
     {% endfor %}
     <tr>
-      <td> All together</td>
+      <td> All </td>
       <td> {{ all_confirmed }}</td>
+      <td> {{ all_deaths }} </td>
+      <td> {{all_recovered }} </td>
     </tr>
       
      
@@ -60,6 +68,10 @@
   <p>You are not logged in</p>
   <a href="{% url 'login' %}">login</a>
 {% endif %}
+
+<p class="license">
+
+</p>
 {% endblock %}
 </body>
 </html>
