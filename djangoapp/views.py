@@ -81,6 +81,7 @@ def home(request):
     return render(request, 'home.html',
     {
         'coronadata' : corona_dct,
+        'confirmed' : confirmed_cases,
         'all_confirmed' : all_cases,
         'all_deaths' : all_deaths,
         'all_recovered' : all_recovered
