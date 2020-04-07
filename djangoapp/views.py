@@ -82,6 +82,8 @@ def home(request):
     {
         'coronadata' : corona_dct,
         'confirmed' : confirmed_cases,
+        'deaths' : deaths,
+        'recovered' : recovered,
         'all_confirmed' : all_cases,
         'all_deaths' : all_deaths,
         'all_recovered' : all_recovered
