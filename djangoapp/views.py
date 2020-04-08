@@ -1,5 +1,6 @@
 from django.shortcuts import render
 import requests
+import random
 
 # Create your views here.
 
@@ -72,11 +73,25 @@ def home(request):
     corona_dct = {}
     data_lst = []
 
+    # So that it is easy to print the data in html, let's put it in dictionary
+    # where district is key and list of confirmed, deaths and recovered value
     for i in range(0, len(healthcaredistricts)):
         districts = list(healthcaredistricts.keys())
         district = districts[i]
         data_lst = [ confirmed_cases[i], deaths[i], recovered[i] ]
         corona_dct[district] = data_lst
+
+    # For charts, creating 22 random colors
+    colors = []
+    for i in range(len(healthcaredistricts)):
+        color = ""
+        r1 = random.randint(0, 255)
+        r2 = random.randint(0, 255)
+        r3 = random.randint(0, 255)
+
+        color = "rgba(" + str(r1) + "," + str(r2)+ "," + str(r3)+ ", 1)"
+        colors.append(color)
+
 
     return render(request, 'home.html',
     {
@@ -86,7 +101,8 @@ def home(request):
         'recovered' : recovered,
         'all_confirmed' : all_cases,
         'all_deaths' : all_deaths,
-        'all_recovered' : all_recovered
+        'all_recovered' : all_recovered,
+        'colorlist' : colors
     } )
 
 def example(request):

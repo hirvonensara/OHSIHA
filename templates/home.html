@@ -68,11 +68,15 @@
     </table>
   </div>
 
-<!-- the pie chart of the confirmed cases-->
+
   <div class="col-sm-6">
+
     <h3>Confirmed cases</h3>
+    <!-- the pie chart of the confirmed cases-->
     <canvas id="confirmedChart" width="100" height="75"></canvas>
+
     <h3> Recovered </h3>
+    <!-- the bar chart of the recovered cases-->
     <canvas id ="recoveredChart" width="100" height="75"></canvas>
 
      
@@ -123,20 +127,6 @@
 
 <!-- Script for the pie chart-->
 <script>
-  var colours = [
-                  'rgba(255, 99, 132, 1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)',
-                  'rgba(75, 192, 192, 1)',
-                  'rgba(153, 102, 255, 1)',
-                  'rgba(255, 159, 64, 1)',
-                  'rgba(255, 99, 132, 1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)',
-                  'rgba(75, 192, 192, 1)',
-                  'rgba(153, 102, 255, 1)',
-                  'rgba(255, 159, 64, 1)'
-              ];
   var ctx = document.getElementById('confirmedChart').getContext('2d');
   var myChart = new Chart(ctx, {
       type: 'pie',
@@ -154,8 +144,17 @@
                     {{ c }},
                 {% endfor %}
               ],
-              backgroundColor: colours,
-              borderColor: colours,
+              backgroundColor: [
+                {% for c in colorlist %} 
+                    "{{ c }}",
+                {% endfor %}
+              ],
+              
+              borderColor: [
+                {% for c in colorlist %} 
+                    "{{ c }}",
+                {% endfor %}
+              ],
               borderWidth: 1
           }]
       },
